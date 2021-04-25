@@ -1,4 +1,7 @@
-﻿using Wangkanai.Runtime.Extensions;
+﻿using System;
+using System.Globalization;
+
+using Wangkanai.Runtime.Extensions;
 
 using Xunit;
 
@@ -6,14 +9,16 @@ namespace Wangkanai.Runtime.Tests.Extensions
 {
     public class StringExtensionsTests
     {
+        #region Unicode
+
         [Fact]
-        public void Mixed()
+        public void Unicode_Mixed()
         {
             Assert.True("sarinสาริน".IsUnicode());
         }
 
         [Fact]
-        public void AsciiOnly()
+        public void Unicode_AsciiOnly()
         {
             Assert.False("123".IsUnicode());
             Assert.False("abc".IsUnicode());
@@ -21,22 +26,54 @@ namespace Wangkanai.Runtime.Tests.Extensions
         }
 
         [Fact]
-        public void UnicodeOnly()
+        public void Unicode_UnicodeOnly()
         {
             Assert.True("สาริน".IsUnicode());
         }
 
         [Fact]
-        public void DigitOnly()
+        public void Unicode_DigitOnly()
         {
             Assert.False("123".IsUnicode());
         }
 
         [Fact]
-        public void AlphabetOnly()
+        public void Unicode_AlphabetOnly()
         {
             Assert.False("abc".IsUnicode());
             Assert.False("ABC".IsUnicode());
         }
+
+        #endregion
+
+        #region EnsureEndsWith
+
+        [Fact]
+        public void EnsureEndsWith_UseCases()
+        {
+            // Expected use-cases
+            Assert.Equal("Test!", "Test".EnsureEndsWith('!'));
+            Assert.Equal("Test!", "Test!".EnsureEndsWith('!'));
+
+            Assert.Equal(@"c:\test\project\", @"c:\test\project".EnsureEndsWith('\\'));
+            Assert.Equal(@"c:\test\project\", @"c:\test\project\".EnsureEndsWith('\\'));
+        }
+
+        [Fact]
+        public void EnsureEndsWith_CaseDifference()
+        {
+            // Case differences
+            Assert.Equal("TurkeYy", "TurkeY".EnsureEndsWith('y'));
+            Assert.Equal("TurkeY", "TurkeY".EnsureEndsWith('y', StringComparison.OrdinalIgnoreCase));
+        }
+
+        [Fact]
+        public void EnsureEndsWith_EdgeCaseForTurkish()
+        {
+            // Edge cases for Turkish 'i'
+            Assert.Equal("TAKSİ", "TAKSİ".EnsureEndsWith('i', true, new CultureInfo("tr-TR")));
+            Assert.Equal("TAKSİi", "TAKSİ".EnsureEndsWith('i', false, new CultureInfo("tr-TR")));
+        }
+        #endregion
     }
 }
