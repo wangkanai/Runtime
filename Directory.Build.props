@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <VersionPrefix>0.1.0</VersionPrefix>
-        <Description>Wangkanai .NET Runtime library</Description>
+        <Description>Wangkanai .NET Runtime library to serve as the foundation for future development.</Description>
         <Authors>Sarin Na Wangkanai</Authors>
         <Copyright>©2014-2021 Sarin Na Wangkanai, All rights reserved</Copyright>
         
@@ -14,26 +14,24 @@
         
         <PackageIcon>wangkanai-logo.png</PackageIcon>
     </PropertyGroup>
-    
+
     <PropertyGroup>
-        <!-- Optional: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
-
-        <!-- Optional: Embed source files that are not tracked by the source control manager in the PDB -->
         <EmbedUntrackedSources>true</EmbedUntrackedSources>
-
-        <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-        <!-- Include symbol files (*.pdb) in the built .nupkg -->
         <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     </PropertyGroup>
     
     <ItemGroup>
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
     </ItemGroup>
-    
-    <ItemGroup>
-        <None Include="..\asset\wangkanai-logo.png" Pack="true" PackagePath="\" />
+
+    <PropertyGroup Condition="'$(Name)'=='Wangkanai.Detection'">
+        <PackageIcon>wangkanai-logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(Name)'=='Wangkanai.Detection'">
+        <None Include="..\asset\wangkanai-logo.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
