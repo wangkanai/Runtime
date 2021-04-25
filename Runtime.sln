@@ -16,6 +16,7 @@ ProjectSection(SolutionItems) = preProject
 	CONTRIBUTING.md = CONTRIBUTING.md
 	dotnet-install.ps1 = dotnet-install.ps1
 	md-styles.css = md-styles.css
+	Directory.Build.props = Directory.Build.props
 EndProjectSection
 EndProject
 Global
