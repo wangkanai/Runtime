@@ -7,12 +7,9 @@
         
         <RepositoryType>git</RepositoryType>
         <RepositoryUrl>git://github.com/wangkanai/runtime</RepositoryUrl>
-        
         <PackageProjectUrl>https://github.com/wangkanai/runtime</PackageProjectUrl>
         <PackageLicense>https://github.com/wangkanai/runtime/blob/main/LICENSE</PackageLicense>
         <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-        
-        <PackageIcon>wangkanai-logo.png</PackageIcon>
     </PropertyGroup>
 
     <PropertyGroup>
