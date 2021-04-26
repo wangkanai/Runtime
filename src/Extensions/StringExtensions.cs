@@ -42,5 +42,26 @@ namespace Wangkanai.Runtime.Extensions
                        ? input 
                        : input + c;
         }
+
+        public static string EnsureStartsWith(this string input, char c)
+            => input.EnsureStartsWith(c, StringComparison.Ordinal);
+        
+        public static string EnsureStartsWith(this string input, char c, StringComparison comparison)
+        {
+            Check.NotNull(input, nameof(input));
+
+            return input.StartsWith(c.ToString(), comparison)
+                       ? input
+                       : c + input;
+        }
+
+        public static string EnsureStartsWith(this string input, char c, bool ignoreCase, CultureInfo culture)
+        {
+            Check.NotNull(input, nameof(input));
+
+            return input.StartsWith(c.ToString(culture), ignoreCase, culture)
+                       ? input
+                       : c + input;
+        }
     }
 }
