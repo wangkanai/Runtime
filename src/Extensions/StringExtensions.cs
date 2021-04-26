@@ -1,11 +1,19 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Text;
+
+using JetBrains.Annotations;
 
 namespace Wangkanai.Runtime.Extensions
 {
     public static class StringExtensions
     {
+        [ContractAnnotation("null => true")]
+        public static bool IsNullOrEmpty(this string input)
+            => string.IsNullOrEmpty(input);
+        
+        [ContractAnnotation("null => true")]
         public static bool IsNullOrWhiteSpace(this string input)
             => string.IsNullOrWhiteSpace(input);
 
@@ -18,27 +26,23 @@ namespace Wangkanai.Runtime.Extensions
 
         public static string EnsureEndsWith(this string input, char c)
             => input.EnsureEndsWith(c, StringComparison.Ordinal);
-        
+
         public static string EnsureEndsWith(this string input, char c, StringComparison comparison)
         {
-            if (input == null)
-                throw new ArgumentNullException(nameof(input));
+            Check.NotNull(input, nameof(input));
 
-            if (input.EndsWith(c.ToString(), comparison))
-                return input;
-
-            return input + c;
+            return input.EndsWith(c.ToString(), comparison) 
+                       ? input 
+                       : input + c;
         }
 
         public static string EnsureEndsWith(this string input, char c, bool ignoreCase, CultureInfo culture)
         {
-            if (input == null)
-                throw new ArgumentNullException(nameof(input));
+            Check.NotNull(input, nameof(input));
 
-            if (input.EndsWith(c.ToString(culture), ignoreCase, culture))
-                return input;
-
-            return input + c;
+            return input.EndsWith(c.ToString(culture), ignoreCase, culture) 
+                       ? input 
+                       : input + c;
         }
     }
 }

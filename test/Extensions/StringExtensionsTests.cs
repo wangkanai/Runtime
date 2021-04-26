@@ -74,6 +74,7 @@ namespace Wangkanai.Runtime.Tests.Extensions
             Assert.Equal("TAKSİ", "TAKSİ".EnsureEndsWith('i', true, new CultureInfo("tr-TR")));
             Assert.Equal("TAKSİi", "TAKSİ".EnsureEndsWith('i', false, new CultureInfo("tr-TR")));
         }
+
         #endregion
     }
 }
