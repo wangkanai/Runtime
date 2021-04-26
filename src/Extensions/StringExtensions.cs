@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 
 namespace Wangkanai.Runtime.Extensions
@@ -10,7 +12,7 @@ namespace Wangkanai.Runtime.Extensions
         [ContractAnnotation("null => true")]
         public static bool IsNullOrEmpty(this string input)
             => string.IsNullOrEmpty(input);
-        
+
         [ContractAnnotation("null => true")]
         public static bool IsNullOrWhiteSpace(this string input)
             => string.IsNullOrWhiteSpace(input);
@@ -29,8 +31,8 @@ namespace Wangkanai.Runtime.Extensions
         {
             Check.NotNull(input, nameof(input));
 
-            return input.EndsWith(c.ToString(), comparison) 
-                       ? input 
+            return input.EndsWith(c.ToString(), comparison)
+                       ? input
                        : input + c;
         }
 
@@ -38,14 +40,14 @@ namespace Wangkanai.Runtime.Extensions
         {
             Check.NotNull(input, nameof(input));
 
-            return input.EndsWith(c.ToString(culture), ignoreCase, culture) 
-                       ? input 
+            return input.EndsWith(c.ToString(culture), ignoreCase, culture)
+                       ? input
                        : input + c;
         }
 
         public static string EnsureStartsWith(this string input, char c)
             => input.EnsureStartsWith(c, StringComparison.Ordinal);
-        
+
         public static string EnsureStartsWith(this string input, char c, StringComparison comparison)
         {
             Check.NotNull(input, nameof(input));
@@ -63,5 +65,15 @@ namespace Wangkanai.Runtime.Extensions
                        ? input
                        : c + input;
         }
+
+        public static Match RegexMatch(this Regex regex, string source)
+        {
+            var match = regex.Match(source);
+            return match.Success ? match : Match.Empty;
+        }
+
+        public static string RemoveAll(this string source, params string[] strings)
+            => strings.Aggregate(source, (current, value)
+                                     => current.Replace(value, "", StringComparison.Ordinal));
     }
 }
