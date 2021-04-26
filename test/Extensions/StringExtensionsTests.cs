@@ -99,8 +99,8 @@ namespace Wangkanai.Runtime.Tests.Extensions
         public void EnsureStartsWith_EdgeCaseForTurkish()
         {
             // Edge cases for Turkish 'i'
-            Assert.Equal("İstanbul", "İstanbul".EnsureEndsWith('i', true, new CultureInfo("tr-TR")));
-            Assert.Equal("iİstanbul", "İstanbul".EnsureEndsWith('i', false, new CultureInfo("tr-TR")));
+            Assert.Equal("İstanbul", "İstanbul".EnsureStartsWith('i', true, new CultureInfo("tr-TR")));
+            Assert.Equal("iİstanbul", "İstanbul".EnsureStartsWith('i', false, new CultureInfo("tr-TR")));
         }
 
         #endregion
