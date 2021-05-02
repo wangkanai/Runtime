@@ -24,11 +24,11 @@
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(Name)'=='Wangkanai.Detection'">
+    <PropertyGroup Condition="'$(Name)'=='Wangkanai.Runtime'">
         <PackageIcon>wangkanai-logo.png</PackageIcon>
     </PropertyGroup>
 
-    <ItemGroup Condition="'$(Name)'=='Wangkanai.Detection'">
+    <ItemGroup Condition="'$(Name)'=='Wangkanai.Runtime'">
         <None Include="..\asset\wangkanai-logo.png" Pack="true" PackagePath="\"/>
     </ItemGroup>
 </Project>
