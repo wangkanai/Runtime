@@ -91,8 +91,10 @@ namespace Wangkanai.Runtime.Extensions
         }
 
         public static string RemoveAll(this string source, params string[] strings)
-            => strings.Aggregate(source, (current, value)
-                                     => current.Replace(value, "", StringComparison.Ordinal));
+            => strings.Aggregate(source, ReplaceOrdinal);
+
+        private static string ReplaceOrdinal(string current, string target)
+            => current.Replace(target, "", StringComparison.Ordinal);
 
         public static string RemovePostFix(this string value, params string[] postfixes)
         {
@@ -156,5 +158,17 @@ namespace Wangkanai.Runtime.Extensions
 
             return value.Left(maxLength - postfix.Length) + postfix;
         }
+
+        public static string SubstringSafe(this string input, int start, int length)
+            => input.Length <= start
+                   ? ""
+                   : input.Length - start <= length
+                       ? input[start..]
+                       : input.Substring(start, length);
+
+        public static string SubstringSafe(this string input, int start)
+            => input.Length <= start
+                   ? ""
+                   : input[start..];
     }
 }
