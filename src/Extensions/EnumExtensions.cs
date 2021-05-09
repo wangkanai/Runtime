@@ -40,7 +40,7 @@ namespace Wangkanai.Runtime.Extensions
                        : string.Join(',', flags);
         }
 
-        public static bool TryGetSingleName(T value, out string? result)
+        public static bool TryGetSingleName(T value, out string result)
             => Names.TryGetValue(value, out result);
     }
 }
