@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <Title>Wangkanai Runtime</Title>
-        <VersionPrefix>0.6.101</VersionPrefix>
+        <VersionPrefix>0.6.102</VersionPrefix>
         <Description>Wangkanai .NET Runtime library to serve as the foundation for future development.</Description>
         <Authors>Sarin Na Wangkanai</Authors>
         <Copyright>©2014-2021 Sarin Na Wangkanai, All rights reserved</Copyright>
