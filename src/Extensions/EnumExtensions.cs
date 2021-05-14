@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
-namespace Wangkanai.Runtime.Extensions
+namespace Wangkanai.Extensions
 {
     public static class EnumExtensions
     {

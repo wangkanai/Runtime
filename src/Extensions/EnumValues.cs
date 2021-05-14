@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Wangkanai.Runtime.Extensions
+namespace Wangkanai.Extensions
 {
     public static class EnumValues<T> where T : Enum
     {

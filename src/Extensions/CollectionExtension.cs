@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Wangkanai.Runtime.Extensions
+namespace Wangkanai.Extensions
 {
     public static class CollectionExtension
     {

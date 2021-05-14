@@ -4,9 +4,9 @@ using System.Diagnostics;
 
 using JetBrains.Annotations;
 
-using Wangkanai.Runtime.Extensions;
+using Wangkanai.Extensions;
 
-namespace Wangkanai.Runtime
+namespace Wangkanai
 {
     [DebuggerStepThrough]
     public static class Check

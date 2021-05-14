@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-using Wangkanai.Runtime.Extensions;
+using Wangkanai.Extensions;
 
 using Xunit;
 
-namespace Wangkanai.Runtime.Tests.Extensions
+namespace Wangkanai.Tests.Extensions
 {
     public class CollectionExtensionsTests
     {
