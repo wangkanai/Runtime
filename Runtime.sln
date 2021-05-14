@@ -17,6 +17,7 @@ ProjectSection(SolutionItems) = preProject
 	dotnet-install.ps1 = dotnet-install.ps1
 	md-styles.css = md-styles.css
 	Directory.Build.props = Directory.Build.props
+	appveyor.yml = appveyor.yml
 EndProjectSection
 EndProject
 Global
