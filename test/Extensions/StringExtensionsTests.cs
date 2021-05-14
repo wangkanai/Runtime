@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-using Wangkanai.Runtime.Extensions;
+using Wangkanai.Extensions;
 
 using Xunit;
 

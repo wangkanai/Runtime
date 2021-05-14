@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 
-using Wangkanai.Runtime.Extensions;
+using Wangkanai.Extensions;
 
 using Xunit;
 
-namespace Wangkanai.Runtime.Tests.Extensions
+namespace Wangkanai.Tests.Extensions
 {
     [Flags]
     public enum EnumFlag

@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 using JetBrains.Annotations;
 
-namespace Wangkanai.Runtime.Extensions
+namespace Wangkanai.Extensions
 {
     public static class StringExtensions
     {
@@ -166,5 +166,8 @@ namespace Wangkanai.Runtime.Extensions
             => input.Length <= start
                    ? ""
                    : input[start..];
+
+        public static string ToTitleCase(this string input)
+            => input.First().ToString().ToUpper() + input.Substring(1);
     }
 }
