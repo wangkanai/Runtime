@@ -1,0 +1,35 @@
+version: {build}.{branch} 
+image:
+  - Visual Studio 2019
+init:
+  - git config --global core.autocrlf true
+dotnet_csproj:
+  patch: true
+  file: '**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+  assembly_version: '{version}'
+  file_version: '{version}'
+  informational_version: '{version}'
+pull_requests:
+  do_not_increment_build_number: true
+branches:
+  only:
+    - main
+    - /^feature\/.$/
+    - /^release\/.$/
+    - /^(.*\/)?ci-.*$/
+clone_depth: 1
+before_build:
+  - ps: |
+      dotnet --version
+      dotnet restore
+build_script:
+  - ps: |
+      dotnet build -c Release
+      dotnet pack -c Release -o .\artifacts
+test_script:
+  - ps: |
+      dotnet test      
+artifacts:
+  - path: '**\*.nupkg'
