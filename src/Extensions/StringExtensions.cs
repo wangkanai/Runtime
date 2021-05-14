@@ -18,12 +18,8 @@ namespace Wangkanai.Runtime.Extensions
         public static bool IsNullOrWhiteSpace(this string input)
             => string.IsNullOrWhiteSpace(input);
 
-        public static bool IsUnicode(this string input)
-        {
-            var asciiBytesCount   = Encoding.ASCII.GetByteCount(input);
-            var unicodeBytesCount = Encoding.UTF8.GetByteCount(input);
-            return asciiBytesCount != unicodeBytesCount;
-        }
+        public static bool IsUnicode(this string input) 
+            => Encoding.ASCII.GetByteCount(input) != Encoding.UTF8.GetByteCount(input);
 
         public static string EnsureEndsWith(this string input, char c)
             => input.EnsureEndsWith(c, StringComparison.Ordinal);
