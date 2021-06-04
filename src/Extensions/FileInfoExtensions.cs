@@ -8,7 +8,6 @@ namespace Wangkanai.Extensions
     {
         public static string ContentType(this IFileInfo fileInfo)
         {
-            var path = fileInfo.PhysicalPath;
             var name = fileInfo.Name;
 
             if (name.IsExtension("jpg"))
@@ -18,7 +17,7 @@ namespace Wangkanai.Extensions
             if (name.IsExtension("png"))
                 return "image/png";
             if (name.IsExtension("svg"))
-                return "image/svg-xml";
+                return "image/svg";
 
             return "application/octet-stream";
         }
